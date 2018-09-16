@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Model\Product;
 
-class DatabaseSeeder extends Seeder
+class ProductTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-        	ProductTableSeeder::class,
-            ReviewTableSeeder::class,
-        ]);
+    	Product::truncate();
+
+    	factory(Product::class, 50)->create();
     }
 }
